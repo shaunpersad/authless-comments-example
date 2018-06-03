@@ -3,9 +3,12 @@
     padding-bottom: 15px;
 }
 
-.commentbox .cb-form-element textarea {
+.commentbox textarea {
 
     width: 500px;
+}
+.commentbox textarea[disabled] {
+    cursor: not-allowed;
 }
 
 .commentbox input[type=text] {
