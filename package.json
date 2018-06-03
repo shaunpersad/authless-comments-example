@@ -1,0 +1,30 @@
+{
+  "name": "react-lambda",
+  "version": "0.3.0",
+  "private": true,
+  "dependencies": {
+    "contentful": "^6.1.1",
+    "contentful-management": "^5.1.3",
+    "netlify-lambda": "^0.4.0",
+    "react": "^16.3.1",
+    "react-commentbox": "^3.0.1",
+    "react-dom": "^16.3.1",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "build": "react-scripts build",
+    "build:lambda": "netlify-lambda build src/lambda",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": {
+    "/.netlify/functions": {
+      "target": "http://back-end:9000",
+      "pathRewrite": {
+        "^/\\.netlify/functions": ""
+      }
+    }
+  }
+}

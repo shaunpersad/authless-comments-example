@@ -1,0 +1,25 @@
+version: '2.1'
+services:
+
+  back-end:
+    build: .
+    image: shaunpersad/authless-comments-example-back-end
+    command: yarn start:lambda
+    env_file: .env.local
+    ports:
+      - '9000:9000'
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+  front-end:
+    build: .
+    container_name: authless-comments-example-front-end
+    image: shaunpersad/authless-comments-example-front-end
+    command: yarn start
+    env_file: .env.local
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
