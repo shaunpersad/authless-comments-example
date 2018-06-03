@@ -1,6 +1,6 @@
 const contentful = require('contentful-management');
 const client = contentful.createClient({
-    accessToken: process.env.CONTENTFUL_CONTENT_MANAGEMENT_API_KEY
+    accessToken: process.env.CONTENTFUL_CONTENT_MANAGEMENT_ACCESS_TOKEN
 });
 
 module.exports = function createComment(body, authorName, subjectId, parentCommentId = null) {
