@@ -21,7 +21,7 @@ All functions are compiled with webpack using the Babel Loader, so you can use m
 
 Note: This project is set up to use Docker and `docker-compose`. To build and run with Docker, rename `.env.local-sample` to `.env.local` and fill out the necessary variables. Then, simply run `docker-compose up`.
 
-Notice that the `CONTENTFUL_CONTENT_MANAGEMENT_ACCESS_TOKEN` environment variable is not prefixed with `REACT_APP_` as the others are. This is on purpose, to prevent `create-react-app` from accidentally exporting this variable to the front-end code. 
+Notice that the `CONTENTFUL_CONTENT_MANAGEMENT_ACCESS_TOKEN` environment variable is not prefixed with `REACT_APP_` as the others are. This is on purpose, to prevent `create-react-app` from exporting this variable to the front-end code. 
 
 When deploying to Netlify, remember to fill out the environment variables in Netlify's dashboard as well.
 
