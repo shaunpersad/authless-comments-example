@@ -2,7 +2,9 @@ This project is based on [Create React App](https://github.com/facebookincubator
 
 The main addition is a new folder: `src/lambda`. Each JavaScript file in there will automatically be prepared for Lambda function deployment.
 
-As an example, we've included a small `src/lambda/hello.js` function, which will be deployed to `/.netlify/functions/hello`.
+This means that the `src/lambda/create-comment.js` function will first be built for Lambda, and then deployed to the url `/.netlify/functions/create-comment`.
+
+When deployed to Netlify, both your front-end React app and back-end Lambda functions will automatically be built and deployed.
 
 You can easily deploy this project yourself using this button:
 
@@ -15,13 +17,18 @@ All functions are compiled with webpack using the Babel Loader, so you can use m
 
 ## Local Development
 
-Note: This project is set up to use Docker and docker-compose. To build and run with Docker, rename `.env.local-sample` to `.env.local` and fill out the necessary variables. Then, simply run `docker-compose up`.
+### Dockerized
+
+Note: This project is set up to use Docker and `docker-compose`. To build and run with Docker, rename `.env.local-sample` to `.env.local` and fill out the necessary variables. Then, simply run `docker-compose up`.
+
+Notice that the `CONTENTFUL_CONTENT_MANAGEMENT_ACCESS_TOKEN` environment variable is not prefixed with `REACT_APP_` as the others are. This is on purpose, to prevent `create-react-app` from accidentally exporting this variable to the front-end code. 
+
 When deploying to Netlify, remember to fill out the environment variables in Netlify's dashboard as well.
 
-If you do not wish to use Docker, you must set the `proxy.target` in `package.json` back to "localhost", and then follow the instructions below:
 
+### Non-dockerized
 
-### Run the functions dev server
+If you do not wish to use Docker, you must set the `proxy.target` in `package.json` back to `http://localhost:9000` instead of `http://back-end:9000`, and then follow the instructions below.
 
 Before developing, clone the repository and run `yarn` from the root of the repo to install all dependencies.
 
@@ -34,9 +41,6 @@ yarn start:lambda
 This will open a local server running at `http://localhost:9000` serving your Lambda functions, updating as you make changes in the `src/lambda` folder.
 
 You can then access your functions directly at `http://localhost:9000/{function_name}`, but to access them with the app, you'll need to start the app dev server.
-
-
-### Run the app dev server
 
 While the functions server is still running, open a new terminal tab and run:
 
