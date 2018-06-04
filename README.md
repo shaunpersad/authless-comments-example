@@ -30,9 +30,9 @@ When deploying to Netlify, remember to fill out the environment variables in Net
 
 If you do not wish to use Docker, you must set the `proxy.target` in `package.json` back to `http://localhost:9000` instead of `http://back-end:9000`, and then follow the instructions below.
 
-Before developing, clone the repository and run `yarn` from the root of the repo to install all dependencies.
+1. Clone the repository and run `yarn` from the root of the repo to install all dependencies.
 
-From inside the project folder, run:
+2. From inside the project folder, run:
 
 ```
 yarn start:lambda
@@ -42,7 +42,7 @@ This will open a local server running at `http://localhost:9000` serving your La
 
 You can then access your functions directly at `http://localhost:9000/{function_name}`, but to access them with the app, you'll need to start the app dev server.
 
-While the functions server is still running, open a new terminal tab and run:
+3. While the functions server is still running, open a new terminal tab and run:
 
 ```
 yarn start
