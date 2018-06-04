@@ -8,13 +8,13 @@ const fakeBlogPostId = 'my-blog-post';
 
 const postData = (url, data) => {
 
-    return fetch(`.netlify/functions${url}?`, {
+    return fetch(`.netlify/functions${url}`, {
         body: JSON.stringify(data),
         headers: {
             'content-type': 'application/json'
         },
         method: 'POST',
-        mode: 'cors' // if your endpoints are on a different domain
+        //mode: 'cors' // if your endpoints are on a different domain
     }).then(response => response.json());
 };
 
