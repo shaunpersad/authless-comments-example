@@ -5,6 +5,7 @@ The main addition is a new folder: `src/lambda`. Each JavaScript file in there w
 As an example, we've included a small `src/lambda/hello.js` function, which will be deployed to `/.netlify/functions/hello`.
 
 You can easily deploy this project yourself using this button:
+
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/shaunpersad/authless-comments-example)
 
 ## Babel/webpack compilation
