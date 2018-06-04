@@ -46,7 +46,7 @@ class MyCommentBox extends React.Component {
     };
 
     // make an API call to post a comment
-    comment = (body, parentCommentId) => {
+    comment = (body, parentCommentId = null) => {
 
         return this.props.postData('/create-comment', {
             body,
